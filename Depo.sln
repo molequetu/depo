@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{09DDE20B-600C-4B60-BC04-A549604D84AD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth", "Auth\Auth.csproj", "{DE966E81-2F4B-47F4-A8C8-3F158C6AE681}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{CBFAA35E-6CB3-40BE-B689-D5BBB1A5EB07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09DDE20B-600C-4B60-BC04-A549604D84AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09DDE20B-600C-4B60-BC04-A549604D84AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09DDE20B-600C-4B60-BC04-A549604D84AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09DDE20B-600C-4B60-BC04-A549604D84AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE966E81-2F4B-47F4-A8C8-3F158C6AE681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE966E81-2F4B-47F4-A8C8-3F158C6AE681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE966E81-2F4B-47F4-A8C8-3F158C6AE681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE966E81-2F4B-47F4-A8C8-3F158C6AE681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBFAA35E-6CB3-40BE-B689-D5BBB1A5EB07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBFAA35E-6CB3-40BE-B689-D5BBB1A5EB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBFAA35E-6CB3-40BE-B689-D5BBB1A5EB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBFAA35E-6CB3-40BE-B689-D5BBB1A5EB07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05108C36-5C0A-4848-9AFA-9DE4A7B23170}
+	EndGlobalSection
+EndGlobal
