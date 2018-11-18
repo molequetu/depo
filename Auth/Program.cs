@@ -2,32 +2,29 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using Microsoft.AspNetCore.Hosting;
-using System;
-using Serilog;
-using Serilog.Sinks.SystemConsole.Themes;
 using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Logging;
+using Serilog;
 using Serilog.Events;
+using Serilog.Sinks.SystemConsole.Themes;
 using System.Linq;
+using Auth;
 
-namespace Auth
+namespace authasp
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            Console.Title = "IdentityServer4.EntityFramework";
-
-            var seed = args.Contains("/seed");
-            if (seed)
-            {
-                args = args.Except(new[] { "/seed" }).ToArray();
-            }
+            var seed = args.Any(x => x == "/seed");
+            if (seed) args = args.Except(new[] { "/seed" }).ToArray();
 
             var host = BuildWebHost(args);
 
             if (seed)
             {
+                SeedDataUsers.EnsureSeedDataUsers(host.Services);
                 SeedData.EnsureSeedData(host.Services);
                 return;
             }

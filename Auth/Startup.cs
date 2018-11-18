@@ -2,51 +2,54 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using Auth.Quickstart;
-using Microsoft.AspNetCore.Hosting;
-using IdentityServer4;
+using authasp.Data.Users.Migrations;
 
-namespace Auth
+namespace authasp
 {
     public class Startup
     {
         public IConfiguration Configuration { get; }
         public IHostingEnvironment Environment { get; }
 
-        public Startup(IConfiguration config, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
-            Configuration = config;
-            Environment = env;
+            Configuration = configuration;
+            Environment = environment;
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(connectionString));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
             services.AddMvc();
 
-            services.Configure<IISOptions>(options =>
+            services.Configure<IISOptions>(iis =>
             {
-                options.AutomaticAuthentication = false;
-                options.AuthenticationDisplayName = "Windows";
+                iis.AuthenticationDisplayName = "Windows";
+                iis.AutomaticAuthentication = false;
             });
 
-            var connectionString = Configuration.GetConnectionString("DefaultConnection");
-            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
-
-            var identityServer = services.AddIdentityServer(options =>
-            {
-                options.Events.RaiseErrorEvents = true;
-                options.Events.RaiseInformationEvents = true;
-                options.Events.RaiseFailureEvents = true;
-                options.Events.RaiseSuccessEvents = true;
-            })
-                .AddTestUsers(TestUsers.Users)
-                // this adds the config data from DB (clients, resources, CORS)
+            services.AddIdentityServer()
+                .AddDeveloperSigningCredential()
+                .AddAspNetIdentity<IdentityUser>()
+                // this adds the config data from DB (clients, resources)
                 .AddConfigurationStore(options =>
                 {
                     options.ConfigureDbContext = builder =>
@@ -62,26 +65,24 @@ namespace Auth
 
                     // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
-                    // options.TokenCleanupInterval = 15; // interval in seconds. 15 seconds useful for debugging
+                    options.TokenCleanupInterval = 30;
                 });
+
+            //if (Environment.IsDevelopment())
+            //{
+            //    AddDeveloperSigningCredential
+            //}
+            //else
+            //{
+            //    throw new Exception("need to configure key material");
+            //}
 
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {
-                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-
                     options.ClientId = "708996912208-9m4dkjb5hscn7cjrn5u0r4tbgkbj1fko.apps.googleusercontent.com";
                     options.ClientSecret = "wdfPY6t8H8cecgjlxud__4Gh";
                 });
-
-            if (Environment.IsDevelopment())
-            {
-                identityServer.AddDeveloperSigningCredential();
-            }
-            else
-            {
-                throw new Exception("need to configure key material");
-            }
         }
 
         public void Configure(IApplicationBuilder app)
@@ -96,8 +97,8 @@ namespace Auth
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseIdentityServer();
             app.UseStaticFiles();
+            app.UseIdentityServer();
             app.UseMvcWithDefaultRoute();
         }
     }
