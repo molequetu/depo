@@ -13,6 +13,9 @@ A physical space management system
 `dotnet ef database update -c ConfigurationDbContext`
 `dotnet ef database update -c PersistedGrantDbContext`
 
+## Apply migrations for user data
+`dotnet ef database update -c ApplicationDbContext`
+
 
 # Populate database with seed data
 `dotnet run /seed (ps)`
