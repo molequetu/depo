@@ -5,14 +5,13 @@
 using System;
 using System.Linq;
 using System.Security.Claims;
+using Auth.Data.Users.Migrations;
 using IdentityModel;
-using authasp.Data;
-using authasp.Data.Users.Migrations;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace authasp
+namespace Auth
 {
     public class SeedDataUsers
     {

@@ -2,14 +2,15 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System;
 using System.Reflection;
-using authasp.Data.Users.Migrations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Auth.Data.Users.Migrations;
 
 namespace Auth
 {
@@ -27,7 +28,7 @@ namespace Auth
         public void ConfigureServices(IServiceCollection services)
         {
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
@@ -44,21 +45,21 @@ namespace Auth
                 iis.AutomaticAuthentication = false;
             });
 
-            services.AddIdentityServer()
+           var builder =  services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
                 .AddAspNetIdentity<IdentityUser>()
                 // this adds the config data from DB (clients, resources)
                 .AddConfigurationStore(options =>
                 {
-                    options.ConfigureDbContext = builder =>
-                        builder.UseSqlServer(connectionString,
+                    options.ConfigureDbContext = b =>
+                        b.UseSqlServer(connectionString,
                             sql => sql.MigrationsAssembly(migrationsAssembly));
                 })
                 // this adds the operational data from DB (codes, tokens, consents)
                 .AddOperationalStore(options =>
                 {
-                    options.ConfigureDbContext = builder =>
-                        builder.UseSqlServer(connectionString,
+                    options.ConfigureDbContext = b =>
+                        b.UseSqlServer(connectionString,
                             sql => sql.MigrationsAssembly(migrationsAssembly));
 
                     // this enables automatic token cleanup. this is optional.
@@ -66,21 +67,15 @@ namespace Auth
                     options.TokenCleanupInterval = 30;
                 });
 
-            //if (Environment.IsDevelopment())
-            //{
-            //    AddDeveloperSigningCredential
-            //}
-            //else
-            //{
-            //    throw new Exception("need to configure key material");
-            //}
+            if (Environment.IsDevelopment())
+            {
+                builder.AddDeveloperSigningCredential();
+            }
+            else
+            {
+                throw new Exception("need to configure key material");
+            }
 
-            services.AddAuthentication()
-                .AddGoogle(options =>
-                {
-                    options.ClientId = "708996912208-9m4dkjb5hscn7cjrn5u0r4tbgkbj1fko.apps.googleusercontent.com";
-                    options.ClientSecret = "wdfPY6t8H8cecgjlxud__4Gh";
-                });
         }
 
         public void Configure(IApplicationBuilder app)

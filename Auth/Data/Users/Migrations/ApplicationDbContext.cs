@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace authasp.Data.Users.Migrations
+namespace Auth.Data.Users.Migrations
 {
     public class ApplicationDbContext : IdentityDbContext
     {

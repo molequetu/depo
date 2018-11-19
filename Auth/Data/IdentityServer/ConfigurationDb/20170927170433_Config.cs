@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using System;
 
-namespace Host.Migrations.IdentityServer.ConfigurationDb
+namespace Auth.Data.IdentityServer.ConfigurationDb
 {
     public partial class Config : Migration
     {
