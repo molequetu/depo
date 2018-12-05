@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth", "Auth\Auth.csproj", "{209E6D1D-BF5E-4F24-933B-5142DCC6AC43}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Depo.Core", "Core\Depo.Core.csproj", "{96698DB3-2280-4C6A-BF07-FA9E37EB18CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{209E6D1D-BF5E-4F24-933B-5142DCC6AC43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{209E6D1D-BF5E-4F24-933B-5142DCC6AC43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{209E6D1D-BF5E-4F24-933B-5142DCC6AC43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96698DB3-2280-4C6A-BF07-FA9E37EB18CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96698DB3-2280-4C6A-BF07-FA9E37EB18CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96698DB3-2280-4C6A-BF07-FA9E37EB18CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96698DB3-2280-4C6A-BF07-FA9E37EB18CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
