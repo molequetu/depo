@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{09DDE20B-600C-4B60-BC04-A549604D84AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Depo.Web", "Web\Depo.Web.csproj", "{09DDE20B-600C-4B60-BC04-A549604D84AD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{CBFAA35E-6CB3-40BE-B689-D5BBB1A5EB07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Depo.Api", "Api\Depo.Api.csproj", "{CBFAA35E-6CB3-40BE-B689-D5BBB1A5EB07}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth", "Auth\Auth.csproj", "{209E6D1D-BF5E-4F24-933B-5142DCC6AC43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Depo.Auth", "Auth\Depo.Auth.csproj", "{209E6D1D-BF5E-4F24-933B-5142DCC6AC43}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Depo.Core", "Core\Depo.Core.csproj", "{96698DB3-2280-4C6A-BF07-FA9E37EB18CA}"
 EndProject

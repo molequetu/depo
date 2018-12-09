@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers
+namespace Depo.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

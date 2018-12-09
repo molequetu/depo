@@ -4,15 +4,15 @@
 
 using System;
 using System.Reflection;
+using Depo.Auth.Data.Users.Migrations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Auth.Data.Users.Migrations;
 
-namespace Auth
+namespace Depo.Auth
 {
     public class Startup
     {

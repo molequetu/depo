@@ -9,7 +9,7 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 
-namespace Auth
+namespace Depo.Auth
 {
     public class Program
     {

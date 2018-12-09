@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Auth.Data.IdentityServer.PersistedGrantDb
+namespace Depo.Auth.Data.IdentityServer.PersistedGrantDb
 {
     [DbContext(typeof(PersistedGrantDbContext))]
     [Migration("20181117174445_InitialIdentityServerPersistedGrantDbMigration")]

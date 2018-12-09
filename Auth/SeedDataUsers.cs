@@ -5,13 +5,13 @@
 using System;
 using System.Linq;
 using System.Security.Claims;
-using Auth.Data.Users.Migrations;
+using Depo.Auth.Data.Users.Migrations;
 using IdentityModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Auth
+namespace Depo.Auth
 {
     public class SeedDataUsers
     {

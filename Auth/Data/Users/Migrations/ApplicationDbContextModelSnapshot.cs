@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Auth.Data.Users.Migrations
+namespace Depo.Auth.Data.Users.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     class ApplicationDbContextModelSnapshot : ModelSnapshot

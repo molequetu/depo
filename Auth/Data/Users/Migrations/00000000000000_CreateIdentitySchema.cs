@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Auth.Data.Users.Migrations
+namespace Depo.Auth.Data.Users.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

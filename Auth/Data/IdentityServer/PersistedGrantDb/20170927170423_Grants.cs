@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Host.Migrations.IdentityServer.PersistedGrantDb
+namespace Depo.Auth.Data.IdentityServer.PersistedGrantDb
 {
     public partial class Grants : Migration
     {
