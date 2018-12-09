@@ -16,5 +16,8 @@
         /// properties
         /// </summary>
         public string Address { get; set; }
+
+        public string HallId { get; set; }
+        public Hall Hall { get; set; }
     }
 }
