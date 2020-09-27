@@ -16,7 +16,13 @@
         /// properties
         /// </summary>
         public string Address { get; set; }
+        
+        public decimal Quantity { get; set; }
 
+        public  int MaxQuantity { get; set; }
+        public string ItemId { get; set; }
+
+        public Item Item { get; set; }
         public string HallId { get; set; }
         public Hall Hall { get; set; }
     }
